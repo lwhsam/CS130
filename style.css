@@ -1,0 +1,28 @@
+/* You're welcome to change any of this! */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 0px;
+    font-family: 'Square Peg', cursive;
+    font-size:xx-large;
+    background-image: url(Image/northwestern2.jpg);
+    background-color: aliceblue;
+    background-repeat: no-repeat;
+    background-position: top ;
+    background-attachment: fixed;
+    background-size: 1264.2px 638.4px;
+}
+header, section {
+    padding: 5px;
+}
+p, li {
+    line-height: 1.5em;
+}
+
+#inspiration {
+    text-align: right;
+}
