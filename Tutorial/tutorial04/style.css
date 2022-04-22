@@ -1,0 +1,79 @@
+body {
+   margin:0;
+}
+
+.container {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   grid-template-rows: 0.2fr 1fr 1fr;
+   grid-template-areas: 
+   "a  .  b  b"
+   "c  d  e  f"
+   "g  g  g  f"; 
+   grid-row-gap: 20px;
+   grid-column-gap: 20px;
+   padding: 20px;
+   min-height: 100vh;
+}
+
+.menu1 {
+   grid-area:a;
+   background: red;
+}
+
+.menu2 {
+   grid-area:b;
+   background: orange
+}
+
+.card1 {
+   grid-area:c;
+   background: yellow
+}
+
+.card2 {
+   grid-area:d;
+   background: lime
+}
+
+.card3 {
+   grid-area:e;
+   background: green
+}
+
+.aside {
+   grid-area:f;
+   background: blue
+}
+
+.main {
+   grid-area:g;
+   background: purple
+}
+
+@media (max-width: 1024px) {
+   .container {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 0.2fr 0.2fr 1fr 1fr 1fr;
+      grid-template-areas: 
+      "a  b"
+      "f  f"
+      "c  d" 
+      "e  e"
+      "g  g";
+   } 
+/* Other stuff don't need to be copied as it doesn't need an overwrite */
+@media (max-width: 600px) {
+   .container {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 0.2fr 0.2fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-areas: 
+      "a ."
+      "b b"
+      "c c" 
+      "d d"
+      "e e"
+      "g g"
+      "f f";
+   } 
+}
