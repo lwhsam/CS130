@@ -62,6 +62,7 @@ body {
       "e  e"
       "g  g";
    } 
+}
 /* Other stuff don't need to be copied as it doesn't need an overwrite */
 @media (max-width: 600px) {
    .container {
