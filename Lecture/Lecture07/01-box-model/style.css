@@ -1,0 +1,44 @@
+body * {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+section{
+    border: solid 1px rgb(128, 128, 128);
+    padding: 0px;
+    width: 30%;
+}
+
+p, h2, button{
+    margin: 10px;
+    /* padding not used as it does not work for button */
+}
+
+img{
+    width: 100%
+}
+
+@media screen and (max-width:600px){
+    body{
+        font-size: 1.1em;
+        /* em refers to the base text, 1.1 em mean 1.1x of the original  */
+    }
+    section{
+        border: none;
+        width: 100%;
+    }
+}
+
+/*
+Add some style blocks below this line to style the card. 
+Properties to experiment with:
+
+border
+padding
+marging
+height
+width
+*/
