@@ -67,7 +67,7 @@ main #profile-photo-attachment nav{
 }
 
 main #profile-photo-attachment {
-  background-image: url(/Homework/Final_project/dist/image/barres_profile_edited2.png);
+  background-image: url(./image/barres_profile_edited2.png);
   background-position: -380px;
   background-repeat: no-repeat;
   background-size: cover;
