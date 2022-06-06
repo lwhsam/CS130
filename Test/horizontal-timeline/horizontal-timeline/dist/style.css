@@ -1,6 +1,6 @@
 /* -------------------------------- 
 
-Primary style (from timeline)
+Primary style
 
 -------------------------------- */
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
@@ -9,7 +9,7 @@ Primary style (from timeline)
 }
 
 html {
-  font-size: 70%;
+  font-size: 62.5%;
 }
 
 body {
@@ -24,86 +24,17 @@ a {
   text-decoration: none;
 }
 
-/* Overall layout */
-main {
-  display: grid;
-  grid-template-rows:100vh 300vh 20px;
-  grid-template-areas: 
-  "headerNav"
-  "article"
-  "footer";
-}
-
 body {
-  background-color: rgb(20, 20, 20);
-  margin: 0px 0px;
-  color: white;
-}
-
-main #profile-photo-attachment {
-  grid-area: headerNav;
-}
-
-main article {
-  grid-area: article;
-}
-
-main footer {
-  grid-area: footer;
-}
-
-/* landing layout */
-main #profile-photo-attachment {
-  display: grid;
-  grid-template-rows:60px auto;
-  grid-template-areas:
-  "nav"
-  "header";
-}
-
-main #profile-photo-attachment header {
-  grid-area: header;
-}
-
-main #profile-photo-attachment nav{
-  grid-area: nav;
-}
-
-main #profile-photo-attachment {
-  background-image: url(/Homework/Final_project/image/barres_profile_edited2.png);
-  background-position: -380px;
-  background-repeat: no-repeat;
+  background-image: url(./medical-background.jpg);
   background-size: cover;
-}
-
-/* nav layout */
-nav ul li {
-  color: black;
-}
-nav ul {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-}
-
-nav {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-/* Article layout */
-article {
-  display: flex;
-  flex-direction: column;
-}
-
-article section {
-  border: solid 2px red;
+  background-position: 400px 50px;
+  background-repeat: no-repeat;
 }
 
 /* -------------------------------- 
-Timeline import style
+
+Main Components 
+
 -------------------------------- */
 .cd-horizontal-timeline {
   opacity: 0;

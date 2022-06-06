@@ -1,13 +1,19 @@
-.rabbit:hover{
-  fill: green;
-}
+/* To-be-fixed
+1. Unable to jump to sections (nav bind)
+2. fonts
+3. 3rd section javascript change content + only activate 1 item only
+4. All main content */
+
 /* -------------------------------- 
 
 Primary style (from timeline)
 
 -------------------------------- */
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
-*, *::after, *::before {
+@import url(https://fonts.googleapis.com/css2?family=Markazi+Text&family=Playball&family=Qwigley&display=swap);
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
@@ -19,7 +25,8 @@ body {
   font-size: 1.6rem;
   font-family: "Source Sans Pro", sans-serif;
   color: #383838;
-  background-color: #f8f8f8;
+  background-color: #ffffff;
+  overflow-x: hidden;
 }
 
 a {
@@ -30,11 +37,11 @@ a {
 /* Overall layout */
 main {
   display: grid;
-  grid-template-rows:100vh 300vh 20px;
-  grid-template-areas: 
-  "headerNav"
-  "article"
-  "footer";
+  grid-template-rows: 100vh 200vh 20px;
+  grid-template-areas:
+    "headerNav"
+    "article"
+    "footer";
 }
 
 main #profile-photo-attachment {
@@ -52,41 +59,90 @@ main footer {
 /* landing layout */
 main #profile-photo-attachment {
   display: grid;
-  grid-template-rows:60px auto;
+  grid-template-rows: 50px auto;
   grid-template-areas:
-  "nav"
-  "header";
+    "nav"
+    "header";
 }
 
 main #profile-photo-attachment header {
   grid-area: header;
 }
 
-main #profile-photo-attachment nav{
+main #profile-photo-attachment nav {
   grid-area: nav;
 }
 
 main #profile-photo-attachment {
-  background-image: url(./image/barres_profile_edited2.png);
-  background-position: -380px;
-  background-repeat: no-repeat;
+  background-image: url(./image/barres_profile_background.png);
+  background-position: 45%;
+  background-repeat: repeat;
   background-size: cover;
+  resize: both;
+}
+
+header {
+  display: grid;
+  grid-template-rows: 25px 0.75fr 420px 1fr 75px;
+  grid-template-columns: 75px 420px 1fr 3fr 1fr;
+}
+
+main #profile-photo-attachment #image-tag {
+  grid-area: 3/1/4/6;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+main #profile-photo-attachment img {
+  grid-area: 3/2/4/3;
+}
+
+#profile-card {
+  color: white;
+  grid-area: 3/4/4/5;
+  display: flex;
+  align-items: center;
+}
+
+#profile-card #profile-card-text h1 {
+  font-family: "Qwigley", cursive;
+  font-weight: bolder;
+  font-size: 300%;
+  line-height: 200%;
+}
+
+#profile-card #profile-card-text h2 {
+  font-family: "Markazi Text", serif;
+  font-size: 150%;
+  line-height: 150%;
 }
 
 /* nav layout */
-nav ul li {
-  color: black;
+nav ul li .selected {
+  border: solid 1px;
+  border-radius: 1em;
 }
+
+nav ul li a {
+  padding: 1px 20px;
+}
+
 nav ul {
   list-style: none;
   display: flex;
   flex-direction: row;
+  padding: 0px 35px;
 }
 
 nav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  position: sticky;
+  top: 0;
+}
+
+nav a {
+  color: white;
 }
 
 /* Article layout */
@@ -96,7 +152,23 @@ article {
 }
 
 article section {
-  border: solid 2px red;
+  /* border: solid 2px red; */
+  /* This cause an overflowing width for some reason, perhaps the scrolling bar on the right? */
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Education layout */
+
+article #education {
+  background-image: url(./image/high-school-background.jpg);
+  background-repeat: no-repeat;
+  background-position: +95% +100%;
+}
+
+article #education h2 {
+  font-family: "Markazi Text", serif;
+  font-size: 280%;
 }
 
 /* -------------------------------- 
@@ -111,7 +183,7 @@ Timeline import style
 }
 .cd-horizontal-timeline::before {
   /* never visible - this is used in jQuery to check the current MQ */
-  content: 'mobile';
+  content: "mobile";
   display: none;
 }
 .cd-horizontal-timeline.loaded {
@@ -131,23 +203,33 @@ Timeline import style
   margin: 0 40px;
   overflow: hidden;
 }
-.cd-horizontal-timeline .events-wrapper::after, .cd-horizontal-timeline .events-wrapper::before {
-  /* these are used to create a shadow effect at the sides of the timeline */
-  content: '';
+
+/* .cd-horizontal-timeline .events-wrapper::after, .cd-horizontal-timeline .events-wrapper::before { */
+/* these are used to create a shadow effect at the sides of the timeline */
+/* content: '';
   position: absolute;
   z-index: 2;
   top: 0;
   height: 100%;
   width: 20px;
-}
+} */
+
 .cd-horizontal-timeline .events-wrapper::before {
   left: 0;
-  background-image: -webkit-linear-gradient( left , #f8f8f8, rgba(248, 248, 248, 0));
+  background-image: -webkit-linear-gradient(
+    left,
+    #f8f8f8,
+    rgba(248, 248, 248, 0)
+  );
   background-image: linear-gradient(to right, #f8f8f8, rgba(248, 248, 248, 0));
 }
 .cd-horizontal-timeline .events-wrapper::after {
   right: 0;
-  background-image: -webkit-linear-gradient( right , #f8f8f8, rgba(248, 248, 248, 0));
+  background-image: -webkit-linear-gradient(
+    right,
+    #f8f8f8,
+    rgba(248, 248, 248, 0)
+  );
   background-image: linear-gradient(to left, #f8f8f8, rgba(248, 248, 248, 0));
 }
 .cd-horizontal-timeline .events {
@@ -203,7 +285,7 @@ Timeline import style
 }
 .cd-horizontal-timeline .events a::after {
   /* this is used to create the event spot */
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   right: auto;
@@ -238,11 +320,11 @@ Timeline import style
 }
 @media only screen and (min-width: 1100px) {
   .cd-horizontal-timeline {
-    margin: 6em auto;
+    margin: 2em auto;
   }
   .cd-horizontal-timeline::before {
     /* never visible - this is used in jQuery to check the current MQ */
-    content: 'desktop';
+    content: "desktop";
   }
 }
 
@@ -272,7 +354,7 @@ Timeline import style
 }
 .cd-timeline-navigation a::after {
   /* arrow icon */
-  content: '';
+  content: "";
   position: absolute;
   height: 16px;
   width: 16px;
@@ -351,17 +433,20 @@ Timeline import style
   -o-transform: translateX(0);
   transform: translateX(0);
 }
-.cd-horizontal-timeline .events-content li.enter-right, .cd-horizontal-timeline .events-content li.leave-right {
+.cd-horizontal-timeline .events-content li.enter-right,
+.cd-horizontal-timeline .events-content li.leave-right {
   -webkit-animation-name: cd-enter-right;
   -moz-animation-name: cd-enter-right;
   animation-name: cd-enter-right;
 }
-.cd-horizontal-timeline .events-content li.enter-left, .cd-horizontal-timeline .events-content li.leave-left {
+.cd-horizontal-timeline .events-content li.enter-left,
+.cd-horizontal-timeline .events-content li.leave-left {
   -webkit-animation-name: cd-enter-left;
   -moz-animation-name: cd-enter-left;
   animation-name: cd-enter-left;
 }
-.cd-horizontal-timeline .events-content li.leave-right, .cd-horizontal-timeline .events-content li.leave-left {
+.cd-horizontal-timeline .events-content li.leave-right,
+.cd-horizontal-timeline .events-content li.leave-left {
   -webkit-animation-direction: reverse;
   -moz-animation-direction: reverse;
   animation-direction: reverse;
@@ -383,13 +468,14 @@ Timeline import style
   margin: 10px auto;
 }
 .cd-horizontal-timeline .events-content em::before {
-  content: '- ';
+  content: "- ";
 }
 .cd-horizontal-timeline .events-content p {
   font-size: 1.4rem;
-  color: #959595;
+  color: #000000;
 }
-.cd-horizontal-timeline .events-content em, .cd-horizontal-timeline .events-content p {
+.cd-horizontal-timeline .events-content em,
+.cd-horizontal-timeline .events-content p {
   line-height: 1.6;
 }
 @media only screen and (min-width: 768px) {
@@ -480,3 +566,55 @@ Timeline import style
     transform: translateX(0%);
   }
 }
+
+/* research layout */
+
+article #research-overlay {
+  width: 100vw;
+  height: 100vh;
+  background: rgb(250, 250, 250);
+  display: flex;
+  align-items: center;
+}
+
+article #research-overlay #research-details {
+  position: relative;
+  left: -11%;
+}
+
+article #research #astrocyte:hover {
+  fill: #1c9a49;
+}
+
+article #research #microglia:hover {
+  fill: #873e1d;
+}
+
+article #research #oligodendrocyte:hover {
+  fill: #2f57a9;
+}
+
+article #research #research-details {
+  width:35%;
+}
+
+article #research #research-details h1 {
+  font-family: "Markazi Text", serif;
+  font-size: 180%; 
+  font-style: italic;
+  line-height: 100%;
+}
+
+article #research #research-details h2 {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 110%;
+  line-height: 150%;
+}
+
+article #research #research-details footer {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 100%;
+  line-height: 500%;
+  color: rgba(0, 0, 0, 0.7) ;
+}
+
